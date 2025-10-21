@@ -21,8 +21,8 @@ bot1 = commands.Bot(command_prefix="!", intents=intents1)
 @bot1.event
 async def on_ready():
     print(f"✅ Bot1 已登入：{bot1.user}")
-    activity = discord.Game(name="原神")
-    await bot1.change_presence(status=discord.Status.online, activity=activity)
+    await bot.change_presence(activity=discord.CustomActivity(name="正在成為 三月七"))
+
 
 @bot1.event
 async def on_voice_state_update(member, before, after):
@@ -43,6 +43,7 @@ bot2 = commands.Bot(command_prefix="?", intents=intents2)
 @bot2.event
 async def on_ready():
     print(f"✅ Bot2 已登入：{bot2.user}")
+    await bot.change_presence(activity=discord.CustomActivity(name="正在書寫 如我所書"))
     try:
         synced = await bot2.tree.sync()
         print(f"📌 已同步 {len(synced)} 個斜線指令 (Bot2)")
@@ -80,4 +81,5 @@ async def main():
     )
 
 asyncio.run(main())
+
 
