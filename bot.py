@@ -10,7 +10,7 @@ TOKEN2 = os.getenv("DISCORD_TOKEN_2")
 
 # 各自的通知頻道
 TARGET_CHANNEL_ID_1 = 1010848964981051424
-TARGET_CHANNEL_ID_2 = 872631720220979370
+TARGET_CHANNEL_ID_2 = 1010848964981051424
 
 # ===== Bot 1：語音進出通知 =====
 intents1 = discord.Intents.default()
@@ -31,8 +31,6 @@ async def on_voice_state_update(member, before, after):
         return
     if before.channel is None and after.channel is not None:
         await channel.send(f":white_check_mark: <{member.display_name}> 加入了語音頻道 {after.channel.name}")
-    elif before.channel is not None and after.channel is None:
-        await channel.send(f":x: <{member.display_name}> 離開了語音頻道 {before.channel.name}")
 
 
 # ===== Bot 2：暱稱修改 + 語音進出 =====
@@ -70,9 +68,7 @@ async def on_voice_state_update(member, before, after):
     channel = bot2.get_channel(TARGET_CHANNEL_ID_2)
     if not channel:
         return
-    if before.channel is None and after.channel is not None:
-        await channel.send(f":white_check_mark: <{member.display_name}> 加入了語音頻道 {after.channel.name}")
-    elif before.channel is not None and after.channel is None:
+    if before.channel is not None and after.channel is None:
         await channel.send(f":x: <{member.display_name}> 離開了語音頻道 {before.channel.name}")
 
 
@@ -84,3 +80,4 @@ async def main():
     )
 
 asyncio.run(main())
+
