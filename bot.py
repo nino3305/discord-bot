@@ -22,8 +22,6 @@ bot1 = commands.Bot(command_prefix="!", intents=intents1)
 async def on_ready():
     print(f"✅ Bot1 已登入：{bot1.user}")
     await bot1.change_presence(activity=discord.CustomActivity(name="正在成為 三月七"))
-)
-
 
 
 @bot1.event
@@ -83,6 +81,7 @@ async def main():
     )
 
 asyncio.run(main())
+
 
 
 
