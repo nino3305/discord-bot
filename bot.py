@@ -30,7 +30,7 @@ async def on_voice_state_update(member, before, after):
     if not channel:
         return
     if before.channel is None and after.channel is not None:
-        await channel.send(f":white_check_mark: <{member.display_name}> 加入了語音頻道 {after.channel.name}")
+        await channel.send(f":white_check_mark: <{member.display_name}> 加入了語音頻道 {after.channel.name}♭")
 
 
 # ===== Bot 2：暱稱修改 + 語音進出 =====
@@ -70,7 +70,7 @@ async def on_voice_state_update(member, before, after):
     if not channel:
         return
     if before.channel is not None and after.channel is None:
-        await channel.send(f":x: <{member.display_name}> 離開了語音頻道 {before.channel.name}")
+        await channel.send(f":x: <{member.display_name}> 離開了語音頻道 {before.channel.name}♪")
 
 
 # ===== 主程式，兩隻 bot 一起跑 =====
@@ -81,6 +81,7 @@ async def main():
     )
 
 asyncio.run(main())
+
 
 
 
