@@ -57,7 +57,7 @@ async def nick(interaction: discord.Interaction, user: discord.Member, new_nick:
         old_nick = user.nick if user.nick else user.name
         await user.edit(nick=new_nick)
         await interaction.response.send_message(
-            f"✅ 已將 {user.name} 的暱稱由 `{old_nick}` 改成 `{new_nick}`"
+            f"👤 {interaction.user.mention} 已將 {user.mention} 的暱稱由 `{old_nick}` 改成 `{new_nick}`"
         )
     except discord.Forbidden:
         await interaction.response.send_message("⚠️ 我沒有權限更改這個成員的暱稱。")
@@ -81,6 +81,7 @@ async def main():
     )
 
 asyncio.run(main())
+
 
 
 
