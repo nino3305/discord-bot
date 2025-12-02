@@ -33,7 +33,7 @@ last_voice_notify = {}   # key = (guild_id, user_id)
 @bot1.event
 async def on_ready():
     print(f"✅ Bot1 已登入：{bot1.user}")
-    await bot1.change_presence(activity=discord.CustomActivity(name="正在成為 三月七"))
+    await bot1.change_presence(activity=discord.CustomActivity(name="(･ω<)☆"))
 
 
 @bot1.event
@@ -113,4 +113,5 @@ async def main():
     )
 
 asyncio.run(main())
+
 
