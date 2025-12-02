@@ -24,7 +24,7 @@ intents1.voice_states = True
 bot1 = commands.Bot(command_prefix="!", intents=intents1)
 
 # 冷卻時間（例如 60 秒內不重複通知）
-VOICE_COOLDOWN = timedelta(seconds=60)
+VOICE_COOLDOWN = timedelta(hours=2)
 
 # 記錄每個人最後一次通知時間
 last_voice_notify = {}   # key = (guild_id, user_id)
@@ -113,3 +113,4 @@ async def main():
     )
 
 asyncio.run(main())
+
