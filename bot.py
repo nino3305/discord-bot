@@ -54,7 +54,7 @@ async def on_voice_state_update(member, before, after):
             return
         
         last_voice_notify[key] = now   # 更新時間
-        await channel.send(f"<{member.display_name}> 加入了語音。")
+        await channel.send(f"{member.display_name} 加入了語音。")
 
     # ========== 離開語音 ==========
     elif before.channel is not None and after.channel is None:
@@ -65,7 +65,7 @@ async def on_voice_state_update(member, before, after):
             return
         
         last_voice_notify[key] = now
-        await channel.send(f"<{member.display_name}> 離開了語音。")
+        await channel.send(f"{member.display_name} 離開了語音。")
 
 
 # =========================
@@ -113,6 +113,7 @@ async def main():
     )
 
 asyncio.run(main())
+
 
 
 
